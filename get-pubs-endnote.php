@@ -1,7 +1,8 @@
 <?php
 
-// run from localhost
-$connect = odbc_connect ( "Driver={SQL Server};Server=espa1.rir.ed.ac.uk;Database=EDINAImports;", 'delsemore', 'Edina1210' );
+//include 'conn-local.php';
+include 'conn-rir.php';
+$connect = odbc_connect ( "Driver={SQL Server};Server=" . $server . ";Database=EDINAImports;",   $username  , $password );
 
 // run on espadev
 // $connect = odbc_connect("ESPA", "delsemore", "Edina1210");
@@ -169,11 +170,11 @@ while ( odbc_fetch_row ( $result ) ) {
 }
 
 // }
-$my_file = 'endnote.enw';
+$my_file = 'files/endnote.enw';
 
 if (file_exists($my_file)) {
 	
-	rename($my_file, "endnote-" . date('Y-m-d'). ".enw");
+	rename($my_file, "files/endnote-" . date('Y-m-d'). ".enw");
 }
 
 
