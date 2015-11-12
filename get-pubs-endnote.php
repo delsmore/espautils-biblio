@@ -4,8 +4,7 @@
 include 'conn-rir.php';
 $connect = odbc_connect ( "Driver={SQL Server};Server=" . $server . ";Database=EDINAImports;",   $username  , $password );
 
-// run on espadev
-// $connect = odbc_connect("ESPA", "delsemore", "Edina1210");
+
 
 $query = "SELECT        LeadProjectCode, RoundID, ProjectTitle,  ProjectCode, ProjectID,  replace(replace(Description,char(10),' '),char(13),' ') as Description, Title, Notes, 
                           URL,  VolumeNumber, SeriesNumber,  IssueNumber, ISBN, ISSN, 
