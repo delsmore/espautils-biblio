@@ -1,10 +1,7 @@
 <?php
-
-// run from localhost
-$connect = odbc_connect("Driver={SQL Server};Server=espa1.rir.ed.ac.uk;Database=EDINAImports;", 'delsemore', 'Edina1210'); 
-
-// run on espadev
-//$connect = odbc_connect("ESPA", "delsemore", "Edina1210"); 
+//include 'conn-local.php';
+include 'conn-rir.php';
+$connect = odbc_connect ( "Driver={SQL Server};Server=" . $server . ";Database=EDINAImports;",   $username  , $password );
 
  $query = "SELECT        TOP (100) PERCENT LeadProjectCode, ResourceType, AttribToProject, countries, WOKID, TimesCited, RoundName, DatePublished, DOI, Edition, ISBN, ISSN, IssueNumber, Keywords, Language, PublicationLocation, Publisher, PageReference, TitleOfJournal, Title, VolumeNumber, OutputID, PrimaryContributor AS Authors,  Contributors AS CoAuthors
 FROM            Results.dbo.RosOutcomePlusProject
